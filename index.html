@@ -26,7 +26,7 @@
 		color: #fff;
 		border: 1px solid royalblue;
 		cursor: pointer;
-		transition: .3s;
+		transition: .3s ease-in;
 		border-radius: 3px;
 		margin: 5px;
 	}
@@ -49,26 +49,19 @@
 </div>
 
 
-
 <script type="text/javascript">
 	new Vue({
 		el: '#app',
 		data: {
 		    progress: 20
 		},
-		computed: {
-			checkProgress: function(){
-
-			}
-		},
 		watch:{
 			progress: function (value) {
-				var vm = this;
-				if( vm.progress <= 0 ){
-					vm.progress = 0;
+				if( this.progress <= 0 ){
+					this.progress = 0;
 				}
-				if ( vm.progress >= 100 ){
-					vm.progress = 100;
+				if ( this.progress >= 100 ){
+					this.progress = 100;
 				}
 			}
 		}

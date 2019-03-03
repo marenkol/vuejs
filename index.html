@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ex 4</title>
+	<script src="https://unpkg.com/vue@2.6.8/dist/vue.js"></script>
+</head>
+<style type="text/css">
+	.progress__wrap{
+		border: 1px solid #eee;
+		border-radius: 3px;
+		background-color: #eee;
+		margin-bottom: 10px;
+	}
+	.progress__bar{
+		height: 7px;
+		background-color: royalblue;
+		border-radius: 3px;
+		transition: .3s;
+	}
+
+	button {
+		background-color: royalblue;
+		font-weight: 600;
+		font-size: 17px;
+		padding: 5px 20px;
+		color: #fff;
+		border: 1px solid royalblue;
+		cursor: pointer;
+		transition: .3s;
+		border-radius: 3px;
+		margin: 5px;
+	}
+	button:hover{
+		background-color: blue;
+	}
+</style>
+<body>
+
+<div id="app">
+	<div class="progress__wrap">
+		<div class="progress__bar" :style="{width: progress + '%'}"></div>
+	</div>
+	<div class="progress__description" style="margin-bottom: 10px;">
+		You progress is: {{ progress }}%
+	</div>
+
+	<button  @click="progress -= 20">Prev</button>
+	<button  @click="progress += 20">Next</button>
+</div>
+
+
+
+<script type="text/javascript">
+	new Vue({
+		el: '#app',
+		data: {
+		    progress: 20
+		},
+		computed: {
+			checkProgress: function(){
+
+			}
+		},
+		watch:{
+			progress: function (value) {
+				var vm = this;
+				if( vm.progress <= 0 ){
+					vm.progress = 0;
+				}
+				if ( vm.progress >= 100 ){
+					vm.progress = 100;
+				}
+			}
+		}
+	});
+</script>
+</body>
+</html>

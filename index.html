@@ -5,6 +5,10 @@
 	<script src="https://unpkg.com/vue@2.6.8/dist/vue.js"></script>
 </head>
 <style type="text/css">
+	#app{
+		padding: 30px;
+		font-family: Arial, sans-serif
+	}
 	.progress__wrap{
 		border: 1px solid #eee;
 		border-radius: 3px;
@@ -15,7 +19,7 @@
 		height: 7px;
 		background-color: royalblue;
 		border-radius: 3px;
-		transition: .3s;
+		transition: .4s;
 	}
 
 	button {
@@ -26,7 +30,7 @@
 		color: #fff;
 		border: 1px solid royalblue;
 		cursor: pointer;
-		transition: .3s ease-in;
+		transition: .4s ease-out;
 		border-radius: 3px;
 		margin: 5px;
 	}
@@ -41,7 +45,7 @@
 		<div class="progress__bar" :style="{width: progress + '%'}"></div>
 	</div>
 	<div class="progress__description" style="margin-bottom: 10px;">
-		You progress is: {{ progress }}%
+		Your progress is: {{ progress }}%
 	</div>
 
 	<button  @click="progress -= 20">Prev</button>
